@@ -245,6 +245,27 @@ public class CollUtil {
 		}
 		return false;
 	}
+	
+	/**
+	 * 集合1中是否包含集合2中所有的元素，既集合2是否为集合1的子集
+	 * 
+	 * @param coll1 集合1
+	 * @param coll2 集合2
+	 * @return 集合1中是否包含集合2中所有的元素
+	 * @since 4.5.12
+	 */
+	public static boolean containsAll(Collection<?> coll1, Collection<?> coll2) {
+		if (isEmpty(coll1) || isEmpty(coll2) || coll1.size() < coll2.size()) {
+			return false;
+		}
+		
+		for (Object object : coll2) {
+			if (false == coll1.contains(object)) {
+				return false;
+			}
+		}
+		return true;
+	}
 
 	/**
 	 * 根据集合返回一个元素计数的 {@link Map}<br>
@@ -2384,6 +2405,43 @@ public class CollUtil {
 			list.add(element);
 		}
 		return list;
+	}
+	
+	/**
+	 * 获取指定Map列表中所有的Key
+	 * 
+	 * @param <K> 键类型
+	 * @param mapCollection Map列表
+	 * @return key集合
+	 * @since 4.5.12
+	 */
+	public static <K> Set<K> keySet(Collection<Map<K, ?>> mapCollection){
+		if(isEmpty(mapCollection)) {
+			return new HashSet<>();
+		}
+		final HashSet<K> set = new HashSet<>(mapCollection.size() * 16);
+		for (Map<K,?> map : mapCollection) {
+			set.addAll(map.keySet());
+		}
+		
+		return set;
+	}
+	
+	/**
+	 * 获取指定Map列表中所有的Value
+	 * 
+	 * @param <V> 值类型
+	 * @param mapCollection Map列表
+	 * @return Value集合
+	 * @since 4.5.12
+	 */
+	public static <V> List<V> values(Collection<Map<?, V>> mapCollection){
+		final List<V> values = new ArrayList<>();
+		for (Map<?, V> map : mapCollection) {
+			values.addAll(map.values());
+		}
+		
+		return values;
 	}
 
 	// ---------------------------------------------------------------------------------------------- Interface start

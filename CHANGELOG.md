@@ -3,10 +3,26 @@
 
 -------------------------------------------------------------------------------------------------------------
 
+## 4.5.12
+
+### 新特性
+* 【json】          解析JSON字符串去除两边空白符(同时解决字符串中bom问题（issue#381@Github）
+* 【poi】           Sax解析增加在异常后关闭文件的逻辑（issue#IXBOU@Gitee）
+* 【core】         MapUtil增加get重载（TypeReference）（issue#IXL81@Gitee）
+* 【crypto】      RC4增加encryptHex和encryptBase64方法（issue#387@Github）
+* 【core】         DateUtil.parse增加格式（issue#385@Github）
+* 【core】         增加CollUtil.containsAny（感谢【北京】宁静）
+* 【core】         增加CollUtil.keySet和values（issue#IXYQJ@Gitee）
+
+### Bug修复
+* 【poi】           解决三目运算符导致类型转换问题（issue#385@Github）
+* 【core】         解决NumberUtil.decimalFormatMoney格式错误问题（issue#391@Github）
+
+-------------------------------------------------------------------------------------------------------------
+
 ## 4.5.11
 
 ### 新特性
-* 【core】           Convert增加convertQuietly方法（issue#364@Github）
 * 【core】           DateUtil.parse方法识别时间增强（issue#IWMM6@Gitee）
 * 【extra】           Mail中Files附件可选为空（issue#365@Github）
 * 【extra】           EmojiUtil增加containsEmoji方法（pr#373@Github）
